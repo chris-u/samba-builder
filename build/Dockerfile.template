@@ -1,0 +1,17 @@
+FROM oraclelinux:8
+
+RUN dnf groupinstall "Development Tools" && dnf config-manager --enable ol8_codeready_builder
+
+#RUN pip3 install markdown
+
+RUN dnf install -y python36 python36-devel  gpgme-devel perl-Parse-Yapp \
+                   lmdb-libs lmdb-devel jansson-devel libarchive-devel \
+                   libacl-devel openldap-devel pam-devel dbus-devel python3-markdown \
+                   python3-dns gnutls-devel libtasn1-tools rpcgen perl-JSON popt-devel
+
+RUN cd /var/tmp/ && curl -o - https://download.samba.org/pub/samba/samba-VERSION.tar.gz |\
+                    gzip -d | tar -xvf - && \
+                    cd samba-[0-9]* && \
+                   ./configure && make && make install 
+                    
+
