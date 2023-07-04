@@ -12,6 +12,6 @@ RUN dnf install -y python36 python36-devel  gpgme-devel perl-Parse-Yapp \
 RUN cd /var/tmp/ && curl -o - https://download.samba.org/pub/samba/samba-VERSION.tar.gz |\
                     gzip -d | tar -xvf - && \
                     cd samba-[0-9]* && \
-                   ./configure && make && make install 
+                   ./configure PREFIX && make && make install 
                     
 
