@@ -1,6 +1,6 @@
-FROM oraclelinux:8
+FROM BUILDERIMAGE
 
-RUN dnf groupinstall "Development Tools" && dnf config-manager --enable ol8_codeready_builder
+#RUN dnf groupinstall "Development Tools" && dnf config-manager --enable ol8_codeready_builder
 
 #RUN pip3 install markdown
 
